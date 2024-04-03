@@ -1,0 +1,36 @@
+opam-version: "2.0"
+maintainer: "Rizo I. <rizo@odis.io>"
+authors: "Rizo I. <rizo@odis.io>"
+homepage: "https://github.com/rizo/signal"
+bug-reports: "https://github.com/rizo/signal/issues"
+dev-repo: "git+https://github.com/rizo/signal.git"
+synopsis: "A small library for reactive signals."
+
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+
+depends: [
+  "ocaml"
+  "dune" {build}
+  "ocaml-lsp-server" {with-dev-setup}
+  "ocamlformat" {with-dev-setup}
+]
+url {
+  src: "https://github.com/rizo/signal/archive/refs/tags/0.4.tar.gz"
+  checksum: [
+    "md5=afc89475fcf57197092a893145181eb5"
+    "sha512=c305d764b760148808591b40cef7e5c64d3ea4a65489604f6e3ab4ffe3ea2884ee59f25f6865789d83b93a1ad9b27b14fbb96c587bd2bb2e03be8b881f1d3629"
+  ]
+}
